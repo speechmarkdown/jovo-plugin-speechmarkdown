@@ -41,5 +41,5 @@ this.ask('Sample [3s] speech [250ms] markdown', 'reprompt [250ms] markdown');
 
 In general:
 ```javascript
-const speechMarkdownSSML = this.$speechMarkdown.toSSML('Sample [3s] speech [250ms] markdown', 'reprompt [250ms] markdown');
+const speechMarkdownSSML = this.$speechMarkdown.toSSML('Sample [3s] speech [250ms] markdown');
 ```
