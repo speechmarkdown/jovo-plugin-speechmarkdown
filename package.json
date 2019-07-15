@@ -1,0 +1,51 @@
+{
+  "name": "jovo-plugin-speechmarkdown",
+  "version": "2.0.0",
+  "description": "",
+  "main": "dist/src/index",
+  "types": "dist/src/index.d.ts",
+  "scripts": {
+    "tslint": "tslint -p tsconfig.json -c tslint.json",
+    "tsc": "tsc",
+    "rimraf": "rimraf ./dist",
+    "typedoc": "typedoc --out ./docs ./ --mode file",
+    "test": "jest"
+  },
+  "author": "jovotech",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "jovo-core": "^2.2.10",
+    "lodash.merge": "^4.6.1",
+    "speechmarkdown-js": "^0.8.2-beta.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.11",
+    "@types/lodash": "^4.14.109",
+    "@types/lodash.merge": "^4.6.6",
+    "@types/node": "^10.3.1",
+    "jest": "^24.8.0",
+    "rimraf": "^2.6.2",
+    "source-map-support": "^0.5.8",
+    "ts-jest": "^24.0.1",
+    "tslint": "^5.17.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typedoc": "^0.13.0",
+    "typescript": "^3.4.1"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testURL": "http://localhost/",
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ]
+  },
+  "files": [
+    "dist/src/**/*"
+  ]
+}
