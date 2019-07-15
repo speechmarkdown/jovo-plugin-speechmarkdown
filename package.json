@@ -1,6 +1,6 @@
 {
   "name": "jovo-plugin-speechmarkdown",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "description": "",
   "main": "dist/src/index",
   "types": "dist/src/index.d.ts",
@@ -12,7 +12,15 @@
     "test": "jest"
   },
   "author": "jovotech",
-  "license": "Apache-2.0",
+  "license": "MIT",
+  "homepage": "https://github.com/speechmarkdown/jovo-plugin-speechmarkdown#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/speechmarkdown/jovo-plugin-speechmarkdown"
+  },
+  "bugs": {
+    "url": "https://github.com/speechmarkdown/jovo-plugin-speechmarkdown/issues"
+  },
   "dependencies": {
     "jovo-core": "^2.2.10",
     "lodash.merge": "^4.6.1",
@@ -29,7 +37,7 @@
     "ts-jest": "^24.0.1",
     "tslint": "^5.17.0",
     "tslint-config-prettier": "^1.18.0",
-    "typedoc": "^0.13.0",
+    "typedoc": "^0.14.2",
     "typescript": "^3.4.1"
   },
   "jest": {
