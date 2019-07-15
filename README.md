@@ -9,11 +9,11 @@ Use the plugin in the app.js:
 ```javascript 
 const { SpeechMarkdown } = require('jovo-plugin-speechmarkdown');
 
-// 
+
 app.use(
     // ... base imports
     new SpeechMarkdown()
-    );
+);
 ```
 
 
@@ -24,7 +24,7 @@ import { SpeechMarkdown } from 'jovo-plugin-speechmarkdown';
 app.use(
     // ... base imports
     new SpeechMarkdown()
-    );
+);
 ```
 
 ## Usage
