@@ -18,7 +18,10 @@ export class SpeechMarkdown implements Plugin {
             case 'GoogleAction':
                 platform = 'google-assistant';
                 break;
-            default: platform = '';
+            case 'BixbyCapsule':
+                platform = 'samsung-bixby';
+                break;
+                default: platform = '';
         }
 
         return platform;
