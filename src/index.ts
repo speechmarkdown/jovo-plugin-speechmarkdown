@@ -1,6 +1,6 @@
 import {SpeechMarkdown as SMD} from 'speechmarkdown-js';
 
-declare module 'jovo-core/dist/src/Jovo' {
+declare module 'jovo-core/dist/src/core/Jovo' {
     interface Jovo {
         $speechMarkdown?: SMD;
     }
