@@ -22,9 +22,9 @@
     "url": "https://github.com/speechmarkdown/jovo-plugin-speechmarkdown/issues"
   },
   "dependencies": {
-    "jovo-core": "^2.2.21",
+    "jovo-core": "^3.3.0",
     "lodash.merge": "^4.6.1",
-    "speechmarkdown-js": "^1.6.0"
+    "speechmarkdown-js": "^1.8.0"
   },
   "devDependencies": {
     "@types/jest": "^24.9.1",
