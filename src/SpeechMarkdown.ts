@@ -1,17 +1,23 @@
 import { BaseApp, HandleRequest, Jovo, Plugin, PluginConfig } from 'jovo-core';
 import _merge = require('lodash.merge');
-import {SpeechMarkdown as SMD} from 'speechmarkdown-js';
-import {SpeechOptions} from 'speechmarkdown-js/dist/src/SpeechOptions' // tslint:disable-line
+import { SpeechMarkdown as SMD } from 'speechmarkdown-js';
+import { SpeechOptions } from 'speechmarkdown-js/dist/src/SpeechOptions' // tslint:disable-line
+
+export interface PlatformOverrideSpeechOptions extends SpeechOptions {
+    'amazon-alexa'?: SpeechOptions;
+    'google-assistant'?: SpeechOptions;
+    'samsung-bixby'?: SpeechOptions;
+}
 
 export interface Config extends PluginConfig {
-    options: SpeechOptions;
+    options: PlatformOverrideSpeechOptions;
 }
 
 export class SpeechMarkdown implements Plugin {
     static getPlatform(jovo: Jovo) {
         let platform;
 
-        switch(jovo.getType()) {
+        switch (jovo.getType()) {
             case 'AlexaSkill':
                 platform = 'amazon-alexa';
                 break;
@@ -21,7 +27,7 @@ export class SpeechMarkdown implements Plugin {
             case 'BixbyCapsule':
                 platform = 'samsung-bixby';
                 break;
-                default: platform = '';
+            default: platform = '';
         }
 
         return platform;
@@ -34,11 +40,12 @@ export class SpeechMarkdown implements Plugin {
             includeSpeakTag: true,
             platform: '',
             preserveEmptyLines: true,
-        }
+            voices: {},
+        },
     };
 
     constructor(config?: Config) {
-        if(config) {
+        if (config) {
             this.config = _merge(this.config, config)
         }
     }
@@ -49,10 +56,23 @@ export class SpeechMarkdown implements Plugin {
 
         // initialize SpeechMarkdown instance
         app.middleware('after.platform.init')!.use((handleRequest: HandleRequest) => {
-            const options = {
+            const platform = SpeechMarkdown.getPlatform(handleRequest.jovo!);
+
+            let options = {
                 ...this.config.options,
-                platform: SpeechMarkdown.getPlatform(handleRequest.jovo!)
+                platform
             };
+
+            if (options['amazon-alexa']) {
+                options = _merge(options, options['amazon-alexa'])
+                delete options['amazon-alexa'];
+            } else if (options['google-assistant']) {
+                options = _merge(options, options['google-assistant'])
+                delete options['google-assistant'];
+            } else if (options['samsung-bixby']) {
+                options = _merge(options, options['samsung-bixby'])
+                delete options['samsung-bixby'];
+            }
 
             handleRequest.jovo!.$speechMarkdown = new SMD(options);
         });

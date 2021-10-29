@@ -24,7 +24,7 @@
   "dependencies": {
     "jovo-core": "^3.3.0",
     "lodash.merge": "^4.6.1",
-    "speechmarkdown-js": "^1.8.0"
+    "speechmarkdown-js": "^2.0.0"
   },
   "devDependencies": {
     "@types/jest": "^24.9.1",
